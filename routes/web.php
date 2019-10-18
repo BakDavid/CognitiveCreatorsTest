@@ -10,7 +10,23 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('welcome');
-});
+});*/
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+//Authentication
+Route::get('/','LoginCheckAndRegisterController@login')->name('login');
+
+Route::post('/loginCheck','LoginCheckAndRegisterController@loginCheck')->name('loginCheck');
+
+Route::get('/register','LoginCheckAndRegisterController@register')->name('register');
+
+Route::post('/registerPost','LoginCheckAndRegisterController@registerPost')->name('registerPost');
+
+Route::get('/loginPassword','LoginCheckAndRegisterController@loginPassword')->name('loginPassword');
+
+Route::post('/loginPasswordPost','LoginCheckAndRegisterController@loginPasswordPost')->name('loginPasswordPost');
+//Authentication end
