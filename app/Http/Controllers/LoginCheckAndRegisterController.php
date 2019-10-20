@@ -47,7 +47,14 @@ class LoginCheckAndRegisterController extends Controller
         $user->password = Hash::make($request->input('password'));
         $user->email = $email;
         $user->save();
-        return view('home');
+
+        if(Auth::attempt([
+            'email' => $email,
+            'password' => $request->password,
+        ]))
+        {
+            return redirect()->route('products');
+        }
     }
 
     public function loginPassword()
@@ -62,11 +69,17 @@ class LoginCheckAndRegisterController extends Controller
             'password' => $request->password,
         ]))
         {
-            return redirect()->route('home');
+            return redirect()->route('products');
         }
         else
         {
             return redirect()->back()->withErrors(array('password' => 'Wrong password!'));
         }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
     }
 }

@@ -1,0 +1,98 @@
+nav {
+    width: 76%;
+    position: absolute !important;
+    top: 8px;
+    left: 12%;
+    right: 12%;
+    padding: 0px !important;
+}
+
+#car {
+    width: 100%;
+}
+
+#deal-text {
+    position: absolute;
+    top: 18%;
+    left: 12%;
+}
+
+#cart {
+    height: 15px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+}
+
+#main-text{
+    color: white;
+    font-weight: bold;
+    width: 100%;
+    font-size: 3vw;
+    margin: 0px;
+}
+
+#main-paragraph{
+    color: white;
+    font-size: 1.4vw;
+}
+
+#search-button {
+    color:white;
+    background-color:#418ef6;
+    border-color:#418ef6;
+}
+
+#search-input {
+    margin-right: 0px !important;
+    width: 70%;
+}
+
+#promotion-text {
+    position: absolute;
+    top: 40%;
+    left: 12%;
+}
+
+#brand-text{
+    color: white;
+    font-weight: bold;
+    width: 100%;
+    font-size: 3vw;
+    margin: 0px;
+}
+
+#category-text{
+    color: white;
+    font-size: 1.4vw;
+}
+
+#season-text{
+    color: white;
+    font-size: 1.4vw;
+    float: right;
+}
+
+#old-price{
+    color: white;
+    font-weight: bold;
+    width: 100%;
+    font-size: 2.6vw;
+    margin: 0px;
+    text-decoration: line-through;
+}
+
+#new-price{
+    color: #418ef6;
+    font-weight: bold;
+    width: 100%;
+    font-size: 3.5vw;
+    margin: 0px;
+}
+
+#find-out-button {
+    color:white;
+    background-color:#418ef6;
+    border-color:#418ef6;
+    font-weight: bold;
+    font-size: 1.1vw;
+}

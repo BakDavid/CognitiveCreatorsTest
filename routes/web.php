@@ -29,4 +29,10 @@ Route::post('/registerPost','LoginCheckAndRegisterController@registerPost')->nam
 Route::get('/loginPassword','LoginCheckAndRegisterController@loginPassword')->name('loginPassword');
 
 Route::post('/loginPasswordPost','LoginCheckAndRegisterController@loginPasswordPost')->name('loginPasswordPost');
+
+Route::post('/logout','LoginCheckAndRegisterController@logout')->name('logout');
 //Authentication end
+
+//Products and cart
+Route::get('/products', 'ProductController@products')->name('products');
+//End of products and cart
