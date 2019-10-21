@@ -5,15 +5,35 @@ nav {
     left: 12%;
     right: 12%;
     padding: 0px !important;
+    box-shadow: 1px 2px #888888;
+    border-radius: 5px;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 2.5rem;
 }
 
 #car {
     width: 100%;
 }
 
+#company-img {
+    height:50px;
+    margin-left:20px;
+}
+
 #deal-text {
     position: absolute;
-    top: 18%;
+    top: 130px;
     left: 12%;
 }
 
@@ -44,12 +64,11 @@ nav {
 
 #search-input {
     margin-right: 0px !important;
-    width: 70%;
 }
 
 #promotion-text {
     position: absolute;
-    top: 40%;
+    top: 240px;
     left: 12%;
 }
 
@@ -68,7 +87,7 @@ nav {
 
 #season-text{
     color: white;
-    font-size: 1.4vw;
+    font-size: 1vw;
     float: right;
 }
 
@@ -95,4 +114,216 @@ nav {
     border-color:#418ef6;
     font-weight: bold;
     font-size: 1.1vw;
+}
+
+#type-buttons img {
+    margin-right: 1%;
+    width: 14.5%;
+    box-shadow: 1px 1px #888888;
+    border-radius: 5px;
+}
+
+#all-products {
+    width: 80%;
+    margin-left: 12%;
+    margin-top: -30px;
+}
+
+#left-bar {
+    float:left;
+    width: 14.5%;
+    background-color: #eee;
+    margin-top: 5%;
+}
+
+#left-bar p {
+    margin-left: 10%;
+    margin-top: 5%;
+    font-weight: bold;
+    font-size: 0.8vw;
+    width: 80%;
+}
+
+#left-bar a {
+    padding-left: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    font-weight: bold;
+    font-size: 0.9vw;
+    width: 100%;
+    display: block;
+    color: black;
+    text-decoration: none;
+}
+
+#left-bar a:hover, a:active {
+    background-color: #418ef6;
+    color: white;
+}
+
+#right-bar {
+    float: left;
+    width: 78%;
+    margin-left: 1%;
+    margin-top: 5%;
+}
+
+#right-bar p {
+    font-size: 1.6vw;
+    font-weight: bold;
+}
+
+#right-bar hr {
+    border: 1px solid  #418ef6;
+}
+
+.product-detail {
+    width: 24%;
+    height: 350px;
+    margin-bottom: 20px;
+    margin-left: 1%;
+    float: left;
+    position: relative;
+    border: 1px solid #888888;
+    border-radius: 3px;
+    box-shadow: 2px 2px #888888;
+}
+
+.product-upper-text {
+    display: block;
+    width: 100%;
+    height: 48px;
+}
+
+.product-upper-text h1 {
+    display: inline;
+    float: left;
+    margin-top: 5px;
+    margin-left: 15px;
+    margin-bottom: 0px;
+    font-weight: bold;
+    font-size: 2.5vw;
+}
+
+.p-season {
+    display: inline;
+    float: right;
+    margin-top: 5px;
+    margin-right: 15px;
+    margin-bottom: 0px;
+    width: 20%;
+}
+
+.p-type {
+    float: left;
+    margin-left: 17px;
+    margin-top: -10px;
+    font-size: 0.8vw !important;
+    display: inline;
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.div-tire-temperature {
+    width: 100%;
+    display: block;
+    height: 50px;
+}
+
+.p-tire-size {
+    float: left;
+    margin-left: 15px;
+    margin-bottom: 0px;
+    font-size: 1.4vw !important;
+}
+
+.p-tire-temperature {
+    float: right;
+    margin-right: 15px;
+    margin-bottom: 0px;
+    font-size: 1.4vw !important;
+}
+
+.product-upper-text p {
+    display: inline;
+    float: right;
+    margin-top: 5px;
+    margin-right: 15px;
+}
+
+.product-images {
+    margin-left: 15px;
+    float: left;
+    width: 100%;
+}
+
+.product-images-responsive img {
+    border-radius: 5px;
+    width: 18%;
+}
+
+.tire-img {
+    width: 50%;
+    bottom: 0px;
+    right: 0px;
+    position: absolute;
+}
+
+.p-old-price {
+    display: block;
+    margin-left: 15px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    font-size: 1vw !important;
+    text-decoration: line-through;
+}
+
+.p-new-price {
+    display: block;
+    margin-left: 15px;
+    margin-bottom: 0px;
+    margin-top: -10px;
+    color: #418ef6;
+}
+
+.p-available {
+    display: block;
+    margin-left: 15px;
+    margin-bottom: 0px;
+    font-size: 0.8vw !important;
+    color: #249d46;
+}
+
+.button-add-to-cart {
+    display: block;
+    width: 80%;
+    float: left;
+    margin-left: 15px;
+    margin-top: 10px !important;
+    position: absolute;
+    color:white;
+    background-color:#418ef6;
+    border-color:#418ef6;
+}
+
+.button-add-to-cart img {
+    width: 20px;
+    margin-top: -3px;
+}
+
+#footer-company {
+    width: 100%;
+    background-color: black;
+    bottom: 0px;
+    position: static;
+    height: 2.5rem;
+    display: flex;
+}
+
+#footer-company p {
+    margin-left: 12%;
+    color: white;
+    font-weight: bold;
+    font-size: 10px;
+    padding-top: 8px;
 }
