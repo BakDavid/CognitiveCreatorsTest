@@ -18,11 +18,11 @@ class CreateProductsTable extends Migration
             $table->string('category')->nullable();
             $table->string('brand')->nullable();
             $table->string('size')->nullable();
-            $table->string('old-price')->nullable();
-            $table->string('new-price')->nullable();
+            $table->string('old_price')->nullable();
+            $table->string('new_price')->nullable();
             $table->string('vat_price')->nullable();
             $table->string('tires_load_index')->nullable();
-            $table->string('quantity')->default(0);
+            $table->integer('quantity')->default(0);
             $table->string('season')->nullable();
             $table->string('specific')->nullable();
             $table->string('image')->nullable();

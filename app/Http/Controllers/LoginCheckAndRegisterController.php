@@ -53,6 +53,9 @@ class LoginCheckAndRegisterController extends Controller
             'password' => $request->password,
         ]))
         {
+            $request->session()->put('category',"Pirelli");
+            $request->session()->put('specific',"Cars_Off_Road_Vehicles_ATV");
+
             return redirect()->route('products');
         }
     }
@@ -69,6 +72,9 @@ class LoginCheckAndRegisterController extends Controller
             'password' => $request->password,
         ]))
         {
+            $request->session()->put('category',"Pirelli");
+            $request->session()->put('specific',"Cars_Off_Road_Vehicles_ATV");
+
             return redirect()->route('products');
         }
         else

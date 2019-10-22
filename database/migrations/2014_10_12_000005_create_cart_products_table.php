@@ -18,7 +18,7 @@ class CreateCartProductsTable extends Migration
             $table->bigInteger('product_id')->unsigned();
             $table->bigInteger('cart_id')->unsigned();
             $table->string('quantity');
-            $table->strin('season');
+            $table->string('season');
             $table->rememberToken();
             $table->timestamps();
 

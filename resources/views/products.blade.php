@@ -59,153 +59,208 @@
               </div>
             </nav>
 
+            @if($products->count() != 0)
             <div id="promotion-text">
                 <div>
-                    <h1 id="brand-text">Pirelli</h1>
-                    <p id="season-text">WINTER</p>
+                    <h1 id="brand-text">{{$products[0]->category}}</h1>
+                    <p id="season-text">{{$products[0]->season}}</p>
                 </div>
 
-                <p id="category-text">P Zero</p>
+                <p id="category-text">{{$products[0]->brand}}</p>
 
-                <h1 id="old-price">475.00 LEI</h1>
-                <h1 id="new-price">475.00 LEI</h1>
+                <h1 id="old-price">{{$products[0]->old_price}}</h1>
+                <h1 id="new-price">{{$products[0]->new_price}}</h1>
                 <button id="find-out-button"  class="btn btn-outline-success">FIND OUT MORE</button>
             </div>
+            @endif
 
 
 
             <div id="all-products">
                 <div id="top-bar">
                     <div id="type-buttons">
-                        <a href="#"><img src="{{ asset('images/Cars-button.png') }}"/></a>
-                        <a href="#"><img src="{{ asset('images/Trucks-button.png') }}"/></a>
-                        <a href="#"><img src="{{ asset('images/Agriculture-button.png') }}"/></a>
-                        <a href="#"><img src="{{ asset('images/Inner-button.png') }}"/></a>
-                        <a href="#"><img src="{{ asset('images/Skid-button.png') }}"/></a>
-                        <a href="#"><img src="{{ asset('images/Rims-button.png') }}"/></a>
+                        @if($specific == 'Cars_Off_Road_Vehicles_ATV')
+                            <button class="btn button-selected">
+                                <a href="{{ route('setSpecific','Cars_Off_Road_Vehicles_ATV') }}"><img src="{{ asset('images/Cars-button.png') }}"/></a>
+                            </button>
+                        @else
+                            <button class="btn">
+                                <a href="{{ route('setSpecific','Cars_Off_Road_Vehicles_ATV') }}"><img src="{{ asset('images/Cars-button.png') }}"/></a>
+                            </button>
+                        @endif
+
+                        @if($specific == 'Trucks')
+                            <button class="btn button-selected">
+                                <a href="{{ route('setSpecific','Trucks') }}"><img src="{{ asset('images/Trucks-button.png') }}"/></a>
+                            </button>
+                        @else
+                            <button class="btn">
+                                <a href="{{ route('setSpecific','Trucks') }}"><img src="{{ asset('images/Trucks-button.png') }}"/></a>
+                            </button>
+                        @endif
+
+                        @if($specific == 'Agriculture')
+                            <button class="btn button-selected">
+                                <a href="{{ route('setSpecific','Agriculture') }}"><img src="{{ asset('images/Agriculture-button.png') }}"/></a>
+                            </button>
+                        @else
+                            <button class="btn">
+                                <a href="{{ route('setSpecific','Agriculture') }}"><img src="{{ asset('images/Agriculture-button.png') }}"/></a>
+                            </button>
+                        @endif
+
+                        @if($specific == 'Inner_tubes')
+                            <button class="btn button-selected">
+                                <a href="{{ route('setSpecific','Inner_tubes') }}"><img src="{{ asset('images/Inner-button.png') }}"/></a>
+                            </button>
+                        @else
+                            <button class="btn">
+                                <a href="{{ route('setSpecific','Inner_tubes') }}"><img src="{{ asset('images/Inner-button.png') }}"/></a>
+                            </button>
+                        @endif
+
+                        @if($specific == 'Skid_chains')
+                            <button class="btn button-selected">
+                                <a href="{{ route('setSpecific','Skid_chains') }}"><img src="{{ asset('images/Skid-button.png') }}"/></a>
+                            </button>
+                        @else
+                            <button class="btn">
+                                <a href="{{ route('setSpecific','Skid_chains') }}"><img src="{{ asset('images/Skid-button.png') }}"/></a>
+                            </button>
+                        @endif
+
+                        @if($specific == 'Rims')
+                            <button class="btn button-selected">
+                                <a href="{{ route('setSpecific','Rims') }}"><img src="{{ asset('images/Rims-button.png') }}"/></a>
+                            </button>
+                        @else
+                            <button class="btn">
+                                <a href="{{ route('setSpecific','Rims') }}"><img src="{{ asset('images/Rims-button.png') }}"/></a>
+                            </button>
+                        @endif
                     </div>
                 </div>
 
                 <div id="left-bar">
-                    <p>Cars / Off Road Vehicles ATV</p>
-                    <a href="#">Pirelli</a>
-                    <a href="#">Michelin</a>
-                    <a href="#">Hankook</a>
-                    <a href="#">Good Year</a>
-                    <a href="#">Maxxis</a>
-                    <a href="#">Hartland</a>
-                    <a href="#">Dunlop</a>
-                    <a href="#">Bridgestone</a>
+                    @if($specific ==  'Cars_Off_Road_Vehicles_ATV')
+                        <p>Cars/Off Road Vehicles ATV</p>
+                    @else
+                        <p>{{$specific}}</p>
+                    @endif
+                    @if($category == "Pirelli")
+                        <a class="a-selected" href="{{ route('setCategory','Pirelli') }}">Pirelli</a>
+                    @else
+                        <a href="{{ route('setCategory','Pirelli') }}">Pirelli</a>
+                    @endif
+
+                    @if($category == "Michelin")
+                        <a class="a-selected" href="{{ route('setCategory','Michelin') }}">Michelin</a>
+                    @else
+                        <a href="{{ route('setCategory','Michelin') }}">Michelin</a>
+                    @endif
+
+                    @if($category == "Hankook")
+                        <a class="a-selected" href="{{ route('setCategory','Hankook') }}">Hankook</a>
+                    @else
+                        <a href="{{ route('setCategory','Hankook') }}">Hankook</a>
+                    @endif
+
+                    @if($category == "Good Year")
+                        <a class="a-selected" href="{{ route('setCategory','Good Year') }}">Good Year</a>
+                    @else
+                        <a href="{{ route('setCategory','Good Year') }}">Good Year</a>
+                    @endif
+
+                    @if($category == "Maxxis")
+                        <a class="a-selected" href="{{ route('setCategory','Maxxis') }}">Maxxis</a>
+                    @else
+                        <a href="{{ route('setCategory','Maxxis') }}">Maxxis</a>
+                    @endif
+
+                    @if($category == "Hartland")
+                        <a class="a-selected" href="{{ route('setCategory','Hartland') }}">Hartland</a>
+                    @else
+                        <a href="{{ route('setCategory','Hartland') }}">Hartland</a>
+                    @endif
+
+                    @if($category == "Dunlop")
+                        <a class="a-selected" href="{{ route('setCategory','Dunlop') }}">Dunlop</a>
+                    @else
+                        <a href="{{ route('setCategory','Dunlop') }}">Dunlop</a>
+                    @endif
+
+                    @if($category == "Bridgestone")
+                        <a class="a-selected" href="{{ route('setCategory','Bridgestone') }}">Bridgestone</a>
+                    @else
+                        <a href="{{ route('setCategory','Bridgestone') }}">Bridgestone</a>
+                    @endif
                 </div>
 
                 <div id="right-bar">
-                    <p>PIRELLI</p>
+                    <p style="text-transform:uppercase;">{{$category}}</p>
                     <hr>
-                    <div class="product-detail">
-                        <div class="product-upper-text">
-                            <h1>Pirelli</h1>
-                            <img class="p-season" src="{{ asset('images/Summer.png') }}"></img>
-                        </div>
-                        <p class="p-type">P Zero</p>
-                        <div class="div-tire-temperature">
-                            <p class="p-tire-size">205/55/R16</p>
-                            <p class="p-tire-temperature">82 T</p>
-                        </div>
 
-                        <div class="product-images">
-                            <div class="product-images-responsive">
-                                <img src="{{ asset('images/Fuel.png') }}"/>
-                                <img src="{{ asset('images/Weather.png') }}"/>
-                                <img src="{{ asset('images/Sound.png') }}"/>
+                    @if($products->count() != 0)
+                        @foreach($products as $p)
+                        <form method="POST" action="{{ route('productAdd',$p->id)}}">
+                            @csrf
+                            <div class="product-detail">
+                                <div class="product-upper-text">
+                                    <h1>{{$p->category}}</h1>
+                                    <img class="p-season" src="{{ asset('images/Summer.png') }}"></img>
+                                </div>
+                                <p class="p-type">{{$p->brand}}</p>
+                                <div class="div-tire-temperature">
+                                    <p class="p-tire-size">{{$p->size}}</p>
+                                    <p class="p-tire-temperature">{{$p->tires_load_index}}</p>
+                                </div>
+
+                                <div class="product-images">
+                                    <div class="product-images-responsive">
+                                        <img src="{{ asset('images/Fuel.png') }}"/>
+                                        <img src="{{ asset('images/Weather.png') }}"/>
+                                        <img src="{{ asset('images/Sound.png') }}"/>
+                                    </div>
+                                    <img class="tire-img" src="{{ asset('images/tire.png') }}"/>
+                                </div>
+                                <div class="product-lower-text">
+                                    <p class="p-old-price">{{$p->old_price}}</p>
+                                    <p class="p-new-price">{{$p->new_price}}</p>
+                                    @if($p->quantity > 0)
+                                        <p class="p-available">Available</p>
+                                    @else
+                                        <p class="p-not-available">Not Available</p>
+                                    @endif
+
+                                </div>
+
+                                @if($p->quantity > 0)
+                                    <div class="button-add-to-cart">
+                                        <select name="quantity">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+
+                                        <button class="btn my-2 my-sm-0" type="submit">
+                                            <img src="{{ asset('images/cart.png')}}"/>
+                                            Add to cart
+                                        </button>
+                                    </div>
+
+                                @endif
                             </div>
-                            <img class="tire-img" src="{{ asset('images/tire.png') }}"/>
-                        </div>
-                        <div class="product-lower-text">
-                            <p class="p-old-price">475.00LEI</p>
-                            <p class="p-new-price">475.00LEI</p>
-                            <p class="p-available">Available</p>
-
-                        </div>
-
-                        <button class="button-add-to-cart btn btn-outline-success my-2 my-sm-0" type="submit">
-                            <select>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                            </select>
-                            <img src="{{ asset('images/cart.png')}}"/>
-                            Add to cart
-                        </button>
-
-
-                    </div>
-                    <div class="product-detail">
-                        <div class="product-upper-text">
-                            <h1>Pirelli</h1>
-                            <img class="p-season" src="{{ asset('images/Summer.png') }}"></img>
-                        </div>
-                        <p class="p-type">P Zero</p>
-                        <div class="div-tire-temperature">
-                            <p class="p-tire-size">205/55/R16</p>
-                            <p class="p-tire-temperature">82 T</p>
-                        </div>
-
-                        <div class="product-images">
-                            <div class="product-images-responsive">
-                                <img src="{{ asset('images/Fuel.png') }}"/>
-                                <img src="{{ asset('images/Weather.png') }}"/>
-                                <img src="{{ asset('images/Sound.png') }}"/>
-                            </div>
-                            <img class="tire-img" src="{{ asset('images/tire.png') }}"/>
-                        </div>
-                        <div class="product-lower-text">
-                            <p class="p-old-price">475.00LEI</p>
-                            <p class="p-new-price">475.00LEI</p>
-                            <p class="p-available">Available</p>
-
-                        </div>
-
-                        <button class="button-add-to-cart btn btn-outline-success my-2 my-sm-0" type="submit">
-                            <select>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                            </select>
-                            <img src="{{ asset('images/cart.png')}}"/>
-                            Add to cart
-                        </button>
-
-
-                    </div>
-                    <div class="product-detail">
-
-                    </div>
-                    <div class="product-detail">
-
-                    </div>
-                    <div class="product-detail">
-
-                    </div>
-                    <div class="product-detail">
-
-                    </div>
+                        </form>
+                        @endforeach
+                    @endif
                 </div>
-
-
             </div>
         </div>
 

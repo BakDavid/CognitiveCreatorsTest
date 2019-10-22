@@ -35,4 +35,10 @@ Route::post('/logout','LoginCheckAndRegisterController@logout')->name('logout');
 
 //Products and cart
 Route::get('/products', 'ProductController@products')->name('products');
+
+Route::get('/setCategory/{category}', 'ProductController@setCategory')->name('setCategory');
+
+Route::get('/setSpecific/{specific}', 'ProductController@setSpecific')->name('setSpecific');
+
+Route::post('/productAdd/{id}','ProductController@productAdd')->name('productAdd');
 //End of products and cart
