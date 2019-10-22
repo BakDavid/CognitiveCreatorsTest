@@ -51,8 +51,8 @@
                     <img id="cart" src="{{ asset('images/cart.png') }}"/>Cart
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">{{$mycart[0]->category}}</a>
+                    <a class="dropdown-item" href="#">{{$mycart[0]->quantity}}</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Something else here</a>
                   </div>

@@ -16,12 +16,12 @@ class CreateUserCartsTable extends Migration
         Schema::create('user__carts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
-            $table->bigInteger('cart_id')->unsigned();
+            $table->string('ordered')->default('no');
+            $table->string('finished')->default('no');
             $table->rememberToken();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('cart_id')->references('id')->on('carts');
         });
     }
 

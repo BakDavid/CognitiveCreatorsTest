@@ -18,12 +18,11 @@ class CreateCartProductsTable extends Migration
             $table->bigInteger('product_id')->unsigned();
             $table->bigInteger('cart_id')->unsigned();
             $table->string('quantity');
-            $table->string('season');
             $table->rememberToken();
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign('cart_id')->references('id')->on('carts');
+            $table->foreign('cart_id')->references('id')->on('user__carts');
         });
     }
 
