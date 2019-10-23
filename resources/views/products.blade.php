@@ -64,12 +64,14 @@
                                   <th>Quantity</th>
                               </tr>
                           </thead>
-                          @foreach($mycart as $m)
-                              <tr>
-                                  <td>{{$m->category . ' ' . $m->brand}}</td>
-                                  <td align="center">{{$m->quantity}}</td>
-                              </tr>
-                          @endforeach
+                          @if($mycart != null)
+                              @foreach($mycart as $m)
+                                  <tr>
+                                      <td>{{$m->category . ' ' . $m->brand}}</td>
+                                      <td align="center">{{$m->quantity}}</td>
+                                  </tr>
+                              @endforeach
+                          @endif
                       </table>
                       <div class="dropdown-divider"></div>
                       <a id="checkout-button" class="dropdown-item" href="{{ route('cart')}}">Checkout</a>
@@ -86,8 +88,8 @@
 
                 <p id="category-text">{{$products[0]->brand}}</p>
 
-                <h1 id="old-price">{{$products[0]->old_price}}</h1>
-                <h1 id="new-price">{{$products[0]->new_price}}</h1>
+                <h1 id="old-price">{{$products[0]->old_price . ' LEI'}}</h1>
+                <h1 id="new-price">{{$products[0]->new_price . ' LEI'}}</h1>
                 <button id="find-out-button"  class="btn btn-outline-success">FIND OUT MORE</button>
             </div>
             @endif
@@ -242,8 +244,8 @@
                                     <img class="tire-img" src="{{ asset('images/tire.png') }}"/>
                                 </div>
                                 <div class="product-lower-text">
-                                    <p class="p-old-price">{{$p->old_price}}</p>
-                                    <p class="p-new-price">{{$p->new_price}}</p>
+                                    <p class="p-old-price">{{$p->old_price . ' LEI'}}</p>
+                                    <p class="p-new-price">{{$p->new_price . ' LEI'}}</p>
                                     @if($p->quantity > 0)
                                         <p class="p-available">Available</p>
                                     @else

@@ -45,4 +45,8 @@ Route::get('/search','ProductController@search')->name('search');
 Route::post('/productAdd/{id}','ProductController@productAdd')->name('productAdd');
 
 Route::get('/cart','CartController@cart')->name('cart');
+
+Route::get('/productRemove/{id}','CartController@productRemove')->name('productRemove');
+
+Route::post('/order','CartController@order')->name('order');
 //End of products and cart

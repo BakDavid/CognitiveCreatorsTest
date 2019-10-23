@@ -18,6 +18,7 @@ class CreateCartProductsTable extends Migration
             $table->bigInteger('product_id')->unsigned();
             $table->bigInteger('cart_id')->unsigned();
             $table->string('quantity');
+            $table->string('deleted')->default('0');
             $table->rememberToken();
             $table->timestamps();
 

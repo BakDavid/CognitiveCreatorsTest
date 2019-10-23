@@ -54,16 +54,25 @@ class ProductController extends Controller
                                ->where('finished','no')
                                ->get(1);
 
-        $cart_product = Cart_Product::select('product_id')
-                                    ->where('cart_id',$myproducts[0]->id)
-                                    ->get()
-                                    ->toArray();
+        //dd($myproducts->toArray());
+        if($myproducts->toArray() != [])
+        {
+            $cart_product = Cart_Product::select('product_id')
+                                        ->where('cart_id',$myproducts[0]->id)
+                                        ->get()
+                                        ->toArray();
 
-        $mycart = Product::whereIn('products.id',$cart_product)
-                         ->join('cart__products','products.id','=','cart__products.product_id')
-                         ->get();
+            $mycart = Product::whereIn('products.id',$cart_product)
+                             ->join('cart__products','products.id','=','cart__products.product_id')
+                             ->where('cart__products.deleted','0')
+                             ->get();
 
-        $request->session()->put('mycart',$mycart);
+            $request->session()->put('mycart',$mycart);
+        }
+        else {
+            $mycart = null;
+        }
+
 
         return view('products')->with('products',$products)
                                ->with('category',$category)
@@ -101,7 +110,13 @@ class ProductController extends Controller
         }
         $cart_product = new Cart_Product();
         $cart_product->product_id = $id;
-        $cart_product->cart_id = $user_cart->id;
+        if($user_cart == null)
+        {
+            $cart_product->cart_id = $cart->id;
+        }
+        else {
+            $cart_product->cart_id = $user_cart->id;
+        }
         $cart_product->quantity = $request->quantity;
         $cart_product->save();
 
