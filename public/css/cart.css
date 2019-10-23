@@ -1,0 +1,76 @@
+nav {
+    width: 76%;
+    position: absolute !important;
+    top: 8px;
+    left: 12%;
+    right: 12%;
+    padding: 0px !important;
+    box-shadow: 1px 2px #888888;
+    border-radius: 5px;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 2.5rem;
+}
+
+#company-img {
+    height:50px;
+    margin-left:20px;
+}
+
+#cart {
+    height: 15px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+}
+
+#search-button {
+    color:white;
+    background-color:#418ef6;
+    border-color:#418ef6;
+}
+
+#search_input {
+    margin-right: 0px !important;
+}
+
+#checkout-button {
+    width: 80%;
+    background-color: #418ef6;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 10%;
+}
+
+.cart-mycontainer {
+    width: 100%;
+    height: 500px;
+    background-color: red;
+}
+
+#footer-company {
+    width: 100%;
+    background-color: black;
+    bottom: 0px;
+    position: static;
+    height: 2.5rem;
+    display: flex;
+}
+
+#footer-company p {
+    margin-left: 12%;
+    color: white;
+    font-weight: bold;
+    font-size: 10px;
+    padding-top: 8px;
+}

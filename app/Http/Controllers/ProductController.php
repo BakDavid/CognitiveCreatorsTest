@@ -23,14 +23,30 @@ class ProductController extends Controller
         $specific = $request->session()->get('specific');
         $search = $request->session()->get('search');
 
-        if($search == null)
+        if($search == null || $search == '')
         {
-            $products = DB::table('products')->where('category',$category)->where('specific',$specific)->get();
+            $products = DB::table('products')
+                            ->where('category',$category)
+                            ->where('specific',$specific)
+                            ->get();
         }
         else
         {
-            //CODE TO WRITE
+            $products = DB::table('products')
+                            ->where('category',$category)
+                            ->where('specific',$specific)
+                            ->where(function($q) use($search){
+                                $q->where('category','like',"%$search%")
+                                ->orWhere('brand','like',"%$search%")
+                                ->orWhere('size','like',"%$search%")
+                                ->orWhere('old_price','like',"%$search%")
+                                ->orWhere('new_price','like',"%$search%")
+                                ->orWhere('tires_load_index','like',"%$search%")
+                                ->orWhere('season','like',"%$search%");
+                            })
+                            ->get();
         }
+
 
         $myproducts = User_Cart::select('id')
                                ->where('user_id',Auth::user()->id)
@@ -47,9 +63,12 @@ class ProductController extends Controller
                          ->join('cart__products','products.id','=','cart__products.product_id')
                          ->get();
 
+        $request->session()->put('mycart',$mycart);
+
         return view('products')->with('products',$products)
                                ->with('category',$category)
                                ->with('specific',$specific)
+                               ->with('search',$search)
                                ->with('mycart',$mycart);
     }
 
@@ -62,6 +81,12 @@ class ProductController extends Controller
     public function setSpecific(Request $request,$specific)
     {
         $request->session()->put('specific',$specific);
+        return redirect()->route('products');
+    }
+
+    public function search(Request $request)
+    {
+        $request->session()->put('search',$request->search_input);
         return redirect()->route('products');
     }
 

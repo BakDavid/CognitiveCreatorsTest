@@ -18,9 +18,14 @@
 
                 <ul class="navbar-nav mr-auto">
                   <li class="nav-item active">
-                      <form class="form-inline my-2 my-lg-0">
-                        <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button id="search-button"  class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                      <form class="form-inline my-2 my-lg-0" action="{{route('search')}}" method="GET">
+                          @if($search != null || $search != '')
+                            <input id="search_input" name="search_input" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value="{{$search}}">
+                          @else
+                            <input id="search_input" name="search_input" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                          @endif
+
+                          <button id="search-button"  class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                       </form>
                   </li>
                 </ul>
@@ -51,10 +56,23 @@
                     <img id="cart" src="{{ asset('images/cart.png') }}"/>Cart
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                    <a class="dropdown-item" href="#">{{$mycart[0]->category}}</a>
-                    <a class="dropdown-item" href="#">{{$mycart[0]->quantity}}</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+
+                      <table class="table table-striped table-bordered dropdown-item">
+                          <thead class="thead-dark">
+                              <tr>
+                                  <th>Product name</th>
+                                  <th>Quantity</th>
+                              </tr>
+                          </thead>
+                          @foreach($mycart as $m)
+                              <tr>
+                                  <td>{{$m->category . ' ' . $m->brand}}</td>
+                                  <td align="center">{{$m->quantity}}</td>
+                              </tr>
+                          @endforeach
+                      </table>
+                      <div class="dropdown-divider"></div>
+                      <a id="checkout-button" class="dropdown-item" href="{{ route('cart')}}">Checkout</a>
                   </div>
               </div>
             </nav>

@@ -40,5 +40,9 @@ Route::get('/setCategory/{category}', 'ProductController@setCategory')->name('se
 
 Route::get('/setSpecific/{specific}', 'ProductController@setSpecific')->name('setSpecific');
 
+Route::get('/search','ProductController@search')->name('search');
+
 Route::post('/productAdd/{id}','ProductController@productAdd')->name('productAdd');
+
+Route::get('/cart','CartController@cart')->name('cart');
 //End of products and cart

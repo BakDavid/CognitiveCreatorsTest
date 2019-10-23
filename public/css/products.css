@@ -62,8 +62,17 @@ body {
     border-color:#418ef6;
 }
 
-#search-input {
+#search_input {
     margin-right: 0px !important;
+}
+
+#checkout-button {
+    width: 80%;
+    background-color: #418ef6;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 10%;
 }
 
 #promotion-text {
